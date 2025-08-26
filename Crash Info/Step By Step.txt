@@ -1,0 +1,7 @@
+Activate VoiceOver.
+Scroll down so the first heading "Heading 1" has gone off the screen.
+2. Tap on the title "Home" so VoiceOver reads it.
+3. Ensure the rotor is set to Headings and swipe down to go to the next heading, that should be in the list.
+4. VoiceOver says "Heading not found" and the VoiceOver cursor is still on the title.
+5. Swipe from left to right to go to the next control which is the list.
+6. The app crashes.

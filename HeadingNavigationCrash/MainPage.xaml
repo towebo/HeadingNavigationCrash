@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Models="clr-namespace:HeadingNavigationCrash.Models"
+             xmlns:ViewModels="clr-namespace:HeadingNavigationCrash.ViewModels"
+             x:Class="HeadingNavigationCrash.MainPage"
+             x:DataType="ViewModels:MainViewModel"           
+             >
+
+    <Grid
+        ColumnDefinitions="1*"
+        RowDefinitions="*"
+        >
+        <RefreshView x:Name="refreshView" Grid.Row="1"                   
+                     >
+            <CollectionView 
+                HorizontalOptions="Fill" 
+                VerticalScrollBarVisibility="Always"
+                ItemsSource="{Binding Items, Mode=TwoWay}"
+                SelectionMode="Single"              
+                >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Models:ListItem">
+
+                        <Grid 
+    Padding="2"
+    RowDefinitions="Auto,Auto"
+    ColumnDefinitions="1*"
+    SemanticProperties.Description="{Binding Title}"
+                            SemanticProperties.HeadingLevel="{Binding HeadingLevel}"
+    >
+
+                            <Label Grid.Row="0" Grid.Column="0"                                                                   
+                                   AutomationProperties.ExcludedWithChildren="True"
+            Margin="10,0"                  
+            Text="{Binding Title}"
+            FontSize="Large"                                                                           
+            HorizontalOptions="Fill"
+            VerticalOptions="Center"                                 
+            />
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+</ContentPage>

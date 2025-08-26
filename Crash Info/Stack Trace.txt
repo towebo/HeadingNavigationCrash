@@ -1,0 +1,8 @@
+at Microsoft.Maui.Controls.Handlers.Items.GroupableItemsViewController`1[[Microsoft.Maui.Controls.ReorderableItemsView, Microsoft.Maui.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].UpdateDefaultSupplementaryView(DefaultCell cell, NSString elementKind, NSIndexPath indexPath)
+   at Microsoft.Maui.Controls.Handlers.Items.GroupableItemsViewController`1[[Microsoft.Maui.Controls.ReorderableItemsView, Microsoft.Maui.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].GetViewForSupplementaryElement(UICollectionView collectionView, NSString elementKind, NSIndexPath indexPath)
+   at Microsoft.Maui.Controls.Handlers.Items.GroupableItemsViewController`1[[Microsoft.Maui.Controls.ReorderableItemsView, Microsoft.Maui.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].__IRegistrarGenericTypeProxy__Microsoft_Maui_Controls_Handlers_Items_GroupableItemsViewController_1___GetViewForSupplementaryElement(IntPtr sel, IntPtr p0, IntPtr p1, IntPtr p2, IntPtr* exception_gchandle)
+--- End of stack trace from previous location ---
+   at ObjCRuntime.Runtime.ThrowException(IntPtr gchandle) in /Users/builder/azdo/_work/2/s/macios/src/ObjCRuntime/Runtime.cs:line 2609
+   at UIKit.UIApplication.UIApplicationMain(Int32 argc, String[] argv, IntPtr principalClassName, IntPtr delegateClassName) in /Users/builder/azdo/_work/2/s/macios/src/UIKit/UIApplication.cs:line 72
+   at UIKit.UIApplication.Main(String[] args, Type principalClass, Type delegateClass) in /Users/builder/azdo/_work/2/s/macios/src/UIKit/UIApplication.cs:line 104
+   at HeadingNavigationCrash.Program.Main(String[] args) in C:\\src\\HeadingNavigationCrash\\HeadingNavigationCrash\\Platforms\\iOS\\Program.cs:line 15
