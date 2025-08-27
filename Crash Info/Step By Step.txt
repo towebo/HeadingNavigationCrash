@@ -1,7 +1,31 @@
-Activate VoiceOver.
-Scroll down so the first heading "Heading 1" has gone off the screen.
-2. Tap on the title "Home" so VoiceOver reads it.
-3. Ensure the rotor is set to Headings and swipe down to go to the next heading, that should be in the list.
-4. VoiceOver says "Heading not found" and the VoiceOver cursor is still on the title.
-5. Swipe from left to right to go to the next control which is the list.
-6. The app crashes.
+App crash on iOS when navigating by heading from title to CollectionView with VoiceOver [A11Y]
+
+
+When focus is on the title and you try to navigate to the next heading it first fails and VoiceOver says that there's no next heading. If you then swipe right to go to the next control it crashes.
+If you're somewhere far down in the list and navigate backwards by heading you'll end up with the VoiceOver cursor focusing the title because it has SemanticProperties.HeadingLevel set to some level. Because of this it's easy to trip into this trap.
+You can avoid it by first tapping the collection view and then navigate by heading but this is an extra step that's quite easy to miss.
+If it's hard to create a total fix it would be great if it at least doesn't crash.
+
+This is not the case with TalkBack on Android.
+
+1. Clone the provided sample app, adjust the app id so it matches your provisioning profile.
+2. Connect an iPhone to your machine so you can debug the app on it.
+3. Activate VoiceOver.
+4. Run the application on your iPhone.
+5. Scroll down the list with items so the first heading "Heading 1" has gone off the screen.
+6. Tap on the title "Home" so the VoiceOver cursor focuses it and reads it.
+7. Ensure the rotor is set to Headings and swipe down to go to the next heading, that should be in the list.
+8. VoiceOver says "Heading not found" and the VoiceOver cursor is still on the title.
+9. Swipe from left to right to go to the next control which is the list.
+10. A null exception is thrown and the app crashes.
+
+Expected behavior
+VoiceOver should be able to find the next heading present either visible on the screen among the items or scroll the collection view until it finds the next item marked as having a heading level Level1 or greater.
+
+Actual behavior
+A null exception is thrown from deep inside and the app crashes.
+
+Workaround/avoiding the issue
+I haven't looked for any coding workarounds because I don't think it's possible. You can catch the exception in the program.cs in platform for iOS but what good does this? It's on its way out anyway.
+If you perform the steps including 8 above and instead of swiping right to go to the next control you put the VoiceOver cursor in the list by tapping the on the list things is initiated correctly because from there you can navigate by heading both forwards and backwards.
+Objects are probably initiated correctly when doing this.
