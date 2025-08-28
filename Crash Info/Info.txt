@@ -3,3 +3,12 @@ AUI
 https://github.com/dotnet/maui
 
 https://github.com/towebo/HeadingNavigationCrash.git
+
+Resolved by adding the following in MAUIProgram.cs:
+#if IOS || MACCATALYST
+builder.ConfigureMauiHandlers(handlers =>
+{
+    handlers.AddHandler<Microsoft.Maui.Controls.CollectionView, Microsoft.Maui.Controls.Handlers.Items2.CollectionViewHandler2>();
+    handlers.AddHandler<Microsoft.Maui.Controls.CarouselView, Microsoft.Maui.Controls.Handlers.Items2.CarouselViewHandler2>();
+});
+#endif
